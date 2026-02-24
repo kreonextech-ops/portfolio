@@ -124,7 +124,7 @@ export default function EcosystemSection() {
                                             fill="none"
                                             stroke={isActive ? "rgba(139,92,246,0.5)" : "rgba(255,255,255,0.06)"}
                                             strokeWidth={isActive ? 1.5 : 1}
-                                            transition="stroke 0.3s"
+                                            style={{ transition: "stroke 0.3s" }}
                                         />
                                         {isActive && (
                                             <path
