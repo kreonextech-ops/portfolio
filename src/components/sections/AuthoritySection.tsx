@@ -4,8 +4,8 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 
 const stats = [
-    { value: "150+", label: "Systems Deployed" },
-    { value: "40+", label: "AI Integrations" },
+    { value: "100%", label: "Custom Engineered" },
+    { value: "Next-Gen", label: "AI Integration" },
     { value: "99.9%", label: "Uptime Guaranteed" },
     { value: "10x", label: "Faster Workflows" },
 ];
