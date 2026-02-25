@@ -107,8 +107,8 @@ export default function LabSection() {
                             </div>
                         </div>
 
-                        {/* Terminal content */}
-                        <div className="p-5 space-y-1 font-mono min-h-[280px] bg-black/40">
+                        {/* Terminal content — always dark like a real terminal */}
+                        <div className="terminal-pane p-5 space-y-1 font-mono min-h-[280px]">
                             {terminalLines.map((line, i) => (
                                 <TerminalLine key={i} line={line} visible={inView} />
                             ))}
@@ -157,8 +157,8 @@ export default function LabSection() {
                                     )}
                                     <div
                                         className={`max-w-[80%] rounded-2xl px-3 py-2 text-xs leading-relaxed ${msg.role === "user"
-                                                ? "bg-purple-500/20 border border-purple-500/30 text-white/80 rounded-tr-sm"
-                                                : "bg-white/5 border border-white/8 text-white/60 rounded-tl-sm"
+                                            ? "bg-purple-500/20 border border-purple-500/30 text-white/80 rounded-tr-sm"
+                                            : "bg-white/5 border border-white/8 text-white/60 rounded-tl-sm"
                                             }`}
                                     >
                                         {msg.text}
@@ -192,7 +192,7 @@ export default function LabSection() {
                         {/* Chat input */}
                         <div className="border-t border-white/5 p-4">
                             <div className="flex items-center gap-3 glass border border-white/8 rounded-xl px-4 py-3">
-                                <span className="text-white/20 text-xs flex-1">Ask anything about your system...</span>
+                                <span className="text-xs flex-1" style={{ color: "var(--muted)" }}>Ask anything about your system...</span>
                                 <div className="w-6 h-6 rounded-lg bg-purple-500/20 flex items-center justify-center">
                                     <Bot className="w-3 h-3 text-purple-400" />
                                 </div>

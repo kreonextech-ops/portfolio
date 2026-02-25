@@ -57,11 +57,14 @@ export default function HeroSection() {
             onMouseMove={handleMouseMove}
             className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden section-blend"
         >
-            {/* Ambient gradient background */}
+            {/* Ambient gradient background — uses CSS vars so it looks good in both themes */}
             <div className="absolute inset-0 z-0">
-                <div className="absolute top-0 left-1/4 w-[600px] h-[600px] rounded-full bg-purple-600/10 blur-[120px] animate-pulse-glow" />
-                <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] rounded-full bg-blue-600/10 blur-[120px] animate-pulse-glow" style={{ animationDelay: "1s" }} />
-                <div className="absolute top-1/3 right-1/3 w-[300px] h-[300px] rounded-full bg-cyan-600/8 blur-[100px]" />
+                <div className="absolute top-0 left-1/4 w-[600px] h-[600px] rounded-full blur-[120px] animate-pulse-glow"
+                    style={{ background: "var(--glow-purple)" }} />
+                <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] rounded-full blur-[120px] animate-pulse-glow"
+                    style={{ background: "var(--glow-blue)", animationDelay: "1s" }} />
+                <div className="absolute top-1/3 right-1/3 w-[300px] h-[300px] rounded-full blur-[100px]"
+                    style={{ background: "var(--glow-purple)", opacity: 0.4 }} />
             </div>
 
             {/* Grid lines */}
@@ -90,7 +93,7 @@ export default function HeroSection() {
                         animate-float
                     >
                         <tag.icon className="w-4 h-4 text-purple-400 shrink-0" />
-                        <span className="text-xs text-white/70 font-medium">{tag.label}</span>
+                        <span className="text-xs font-medium" style={{ color: "var(--muted)" }}>{tag.label}</span>
                     </motion.div>
                 ))}
             </div>
@@ -106,7 +109,7 @@ export default function HeroSection() {
                         transition={{ delay: 1 + tag.delay, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                     >
                         <tag.icon className="w-4 h-4 text-blue-400 shrink-0" />
-                        <span className="text-xs text-white/70 font-medium">{tag.label}</span>
+                        <span className="text-xs font-medium" style={{ color: "var(--muted)" }}>{tag.label}</span>
                     </motion.div>
                 ))}
             </div>
@@ -158,7 +161,8 @@ export default function HeroSection() {
 
                 {/* Sub-headline */}
                 <motion.p
-                    className="text-base md:text-lg text-white/45 max-w-xl mx-auto mb-12 leading-relaxed font-light"
+                    className="text-base md:text-lg max-w-xl mx-auto mb-12 leading-relaxed font-light"
+                    style={{ color: "var(--muted)" }}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.7, duration: 0.8 }}
@@ -182,8 +186,11 @@ export default function HeroSection() {
                         <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity" />
                     </a>
                     <a
-                        href="#contact"
-                        className="hover-target px-8 py-4 rounded-2xl glass border border-white/10 text-white/80 font-medium text-sm tracking-wide hover:border-purple-500/50 hover:text-white transition-all duration-300"
+                        href="https://www.kreonex.com/contact"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover-target px-8 py-4 rounded-2xl glass border border-white/10 font-medium text-sm tracking-wide hover:border-purple-500/50 transition-all duration-300"
+                        style={{ color: "var(--muted)" }}
                     >
                         Start a Project →
                     </a>
@@ -197,7 +204,7 @@ export default function HeroSection() {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.5, duration: 1 }}
             >
-                <span className="text-xs text-white/30 uppercase tracking-widest">Scroll to explore</span>
+                <span className="text-xs uppercase tracking-widest" style={{ color: "var(--muted)" }}>Scroll to explore</span>
                 <motion.div
                     animate={{ y: [0, 8, 0] }}
                     transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}

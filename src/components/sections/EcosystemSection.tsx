@@ -82,10 +82,10 @@ export default function EcosystemSection() {
                     animate={inView ? { opacity: 1, scale: 1 } : {}}
                     transition={{ delay: 0.3, duration: 0.8 }}
                 >
-                    <div className="glass border border-white/8 rounded-3xl p-8 relative overflow-hidden">
+                    <div className="glass border border-white/8 rounded-3xl p-8 relative overflow-hidden ecosystem-canvas">
                         {/* Animated background grid */}
                         <div
-                            className="absolute inset-0 opacity-[0.04] rounded-3xl"
+                            className="absolute inset-0 opacity-[0.03] rounded-3xl"
                             style={{
                                 backgroundImage: "linear-gradient(rgba(139,92,246,1) 1px, transparent 1px), linear-gradient(90deg, rgba(139,92,246,1) 1px, transparent 1px)",
                                 backgroundSize: "40px 40px",
@@ -122,7 +122,7 @@ export default function EcosystemSection() {
                                         <path
                                             d={`M ${from.x} ${from.y} Q ${midX} ${midY} ${to.x} ${to.y}`}
                                             fill="none"
-                                            stroke={isActive ? "rgba(139,92,246,0.5)" : "rgba(255,255,255,0.06)"}
+                                            stroke={isActive ? "rgba(139,92,246,0.5)" : "var(--ecosystem-line)"}
                                             strokeWidth={isActive ? 1.5 : 1}
                                             style={{ transition: "stroke 0.3s" }}
                                         />
@@ -162,10 +162,10 @@ export default function EcosystemSection() {
                                         {/* Outer ring */}
                                         <circle
                                             r={isCenter ? 34 : 26}
-                                            fill="rgba(0,0,0,0.5)"
+                                            fill="var(--ecosystem-node-bg)"
                                             stroke={node.color}
                                             strokeWidth={isHovered ? 2 : 1}
-                                            strokeOpacity={isHovered ? 0.9 : 0.4}
+                                            strokeOpacity={isHovered ? 0.9 : 0.45}
                                         />
                                         {/* Inner circle */}
                                         <circle
@@ -176,11 +176,11 @@ export default function EcosystemSection() {
                                         <text
                                             textAnchor="middle"
                                             dy={isCenter ? "50" : "42"}
-                                            fill="white"
+                                            fill="var(--ecosystem-label)"
                                             fontSize={isCenter ? "11" : "10"}
                                             fontFamily="Space Grotesk, sans-serif"
-                                            fontWeight="500"
-                                            opacity={0.8}
+                                            fontWeight="600"
+                                            opacity={0.85}
                                         >
                                             {node.label}
                                         </text>

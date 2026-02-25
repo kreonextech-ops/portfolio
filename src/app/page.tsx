@@ -12,12 +12,14 @@ const MobileSection = dynamic(() => import("@/components/sections/MobileSection"
 const AutomationSection = dynamic(() => import("@/components/sections/AutomationSection"));
 const TechSection = dynamic(() => import("@/components/sections/TechSection"));
 const LabSection = dynamic(() => import("@/components/sections/LabSection"));
+const SMMSection = dynamic(() => import("@/components/sections/SMMSection"));
+const TeamSection = dynamic(() => import("@/components/sections/TeamSection"));
 const MatrixSection = dynamic(() => import("@/components/sections/MatrixSection"));
 const CTASection = dynamic(() => import("@/components/sections/CTASection"));
 
 export default function Home() {
     return (
-        <main className="relative min-h-screen bg-black overflow-x-hidden">
+        <main className="relative min-h-screen bg-[var(--background)] overflow-x-hidden">
             <Navbar />
 
             {/* Section Anchors */}
@@ -30,6 +32,8 @@ export default function Home() {
             <div id="automation"><AutomationSection /></div>
             <div id="tech"><TechSection /></div>
             <div id="lab"><LabSection /></div>
+            <div id="smm"><SMMSection /></div>
+            <div id="team"><TeamSection /></div>
             <div id="matrix"><MatrixSection /></div>
             <div id="contact"><CTASection /></div>
 
@@ -37,3 +41,4 @@ export default function Home() {
         </main>
     );
 }
+

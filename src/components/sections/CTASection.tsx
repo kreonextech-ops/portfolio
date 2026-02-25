@@ -26,9 +26,11 @@ export default function CTASection() {
             onMouseMove={handleMouseMove}
             className="relative min-h-screen flex items-center justify-center px-6 py-32 overflow-hidden"
         >
-            {/* Ambient blobs */}
-            <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-purple-700/15 blur-[140px] animate-float-slow" />
-            <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-blue-700/12 blur-[120px] animate-float-slow" style={{ animationDelay: "2s" }} />
+            {/* Ambient blobs — use CSS vars so they're visible but not dark in light mode */}
+            <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full blur-[140px] animate-float-slow"
+                style={{ background: "var(--glow-purple)" }} />
+            <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full blur-[120px] animate-float-slow"
+                style={{ background: "var(--glow-blue)", animationDelay: "2s" }} />
 
             {/* Mouse-reactive spotlight */}
             <motion.div
@@ -112,7 +114,9 @@ export default function CTASection() {
                     transition={{ delay: 0.8, duration: 0.8 }}
                 >
                     <a
-                        href="mailto:hello@kreonex.com"
+                        href="https://www.kreonex.com/contact"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="hover-target group relative px-10 py-5 rounded-2xl text-white font-semibold tracking-wide overflow-hidden transition-all duration-300 hover:scale-105"
                         style={{
                             background: "linear-gradient(135deg, #8b5cf6, #3b82f6)",
@@ -128,7 +132,8 @@ export default function CTASection() {
 
                     <a
                         href="#capabilities"
-                        className="hover-target px-10 py-5 rounded-2xl glass border border-white/10 text-white/70 font-medium tracking-wide hover:border-purple-500/40 hover:text-white transition-all duration-300"
+                        className="hover-target px-10 py-5 rounded-2xl glass border border-white/10 font-medium tracking-wide hover:border-purple-500/40 transition-all duration-300"
+                        style={{ color: "var(--muted)" }}
                     >
                         View All Services
                     </a>
@@ -136,7 +141,8 @@ export default function CTASection() {
 
                 {/* Bottom strip */}
                 <motion.div
-                    className="flex flex-wrap items-center justify-center gap-8 text-white/20 text-sm"
+                    className="flex flex-wrap items-center justify-center gap-8 text-sm"
+                    style={{ color: "var(--muted)" }}
                     initial={{ opacity: 0 }}
                     animate={inView ? { opacity: 1 } : {}}
                     transition={{ delay: 1, duration: 0.8 }}
